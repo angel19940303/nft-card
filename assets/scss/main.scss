@@ -1,0 +1,217 @@
+/*==========\Variables/==========*/
+$primary_colors:(
+    "soft-blue":hsl(215, 51%, 70%),
+    "cyan":hsl(178, 100%, 50%)
+);
+
+$neutral-colors:(
+    "bg-blue-main": hsl(217, 54%, 11%),
+    "bg-blue-card": hsl(216, 50%, 16%),
+    "blue-line": hsl(215, 32%, 27%),
+    "white": hsl(0, 0%, 100%)
+);
+
+/*==========\Fonts/==========*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+
+/*==========\Reset/==========*/
+*{
+    font-family: 'Outfit',sans-serif;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    a{
+       text-decoration: none; 
+    }
+    img{
+        max-width: 100%;
+    }
+}
+/*==========\Base/==========*/
+body{
+    background-color: map-get($neutral-colors,"bg-blue-main");
+
+    width: 100%;
+    height: 100vh;
+    .main{
+        width: 100%;
+        height: 100%;
+        .NFT{
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            .NFT__container{
+                width: 90%;
+                height: 100%;
+                margin: auto;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+/*==========\Card Layout/==========*/
+.card{
+    background-color: map-get($neutral-colors, "bg-blue-card");
+
+    width: 325px;
+
+    border-radius: 15px;
+    box-shadow: 0px 20px 12px rgba(0, 0, 0, 0.341);
+    .card__container{
+        padding: 1.5rem;
+        .card__content-img{
+            position: relative;
+
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1.25rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            .card__nft-img{
+                max-width: 100%;
+                height:auto;
+
+                display: block;
+
+                border-radius: 15px;
+                &:hover{
+                    opacity: 0.5;
+                }
+            }
+            .card__view{
+                background-color: rgba(0, 255, 255, 0.2);
+
+                width: 100%;
+                height: 100%;
+
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+                border-radius: 15px;
+
+                transition: .5s;
+                opacity: 0;
+                .card__view-img{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    -webkit-transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+                }
+            }
+            &:hover .card__view{
+                opacity: 1;
+            }
+            
+        }
+    }
+}
+/*==========\Card Datas/==========*/
+.card__data{
+    p,span{
+        color: map-get($primary_colors, "soft-blue");
+    }
+    .card__titles{
+        max-width: 100%;
+        .card__title{
+            color: map-get($neutral-colors,"white");
+
+            margin-bottom:1.25rem ;
+
+            font-size: 1.5rem;
+            transition: .5s;
+            cursor: pointer;
+
+            &:hover{
+                color: map-get($primary_colors, "cyan");
+            }
+        }
+        .card__description{
+            max-width: 100%;
+            margin-bottom: 1.25rem;
+
+            font-size: 18px;
+        }
+    }
+}
+
+/*=====\Card Information/=====*/
+.card__information{
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .75rem 0;
+    margin-bottom: 1.25rem;
+
+    &::after{
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        background-color: map-get($neutral-colors, "blue-line");
+    }
+    .card__coin{
+        span{
+            color: map-get($primary_colors, "cyan");
+            font-weight: 600;
+        }
+    }
+    .card__info{
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        img{
+            padding-bottom:.25rem ;
+        }
+    }
+}
+
+/*=====\Card User/=====*/
+.card__user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    .card__user-img{
+        max-width: 32px;
+
+        border: 2px solid map-get($neutral-colors, "white");
+        border-radius: 50%;
+
+        transition: .5s;
+        cursor: pointer;
+        &:hover{
+            border: 2px solid map-get($primary_colors, "cyan");
+        }
+    }
+    a{
+        color: map-get($neutral-colors, "white");
+
+        transition: .5s;
+       &:hover{
+        color: map-get($primary_colors, "cyan");
+
+       }
+    }
+}
